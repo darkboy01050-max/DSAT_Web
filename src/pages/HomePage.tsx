@@ -22,7 +22,7 @@ function HomePage() {
                   href="https://dsat-math.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-8 py-4 bg-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-blue-600 transition-all duration-200 shadow-md hover:shadow-lg"
+                  className="inline-flex items-center px-8 py-4 bg-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-blue-600 transition-elegant shadow-md hover:shadow-xl hover:scale-105 transform"
                 >
                   Start Now
                   <svg
@@ -37,14 +37,24 @@ function HomePage() {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
-                <div className="aspect-square bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl flex items-center justify-center">
-                  <Calculator className="w-32 h-32 text-blue-500" strokeWidth={1.5} />
+            <div className="relative animate-fade-in-up" style={{ animationDelay: '0.2s', opacity: 0 }}>
+              <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-200 transition-elegant hover:shadow-xl">
+                <div className="aspect-square bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl flex items-center justify-center overflow-hidden">
+                  <img
+                    src="/images/logo.jpg"
+                    alt="Digital SAT Math"
+                    className="w-full h-full object-cover transition-elegant hover:scale-105"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      const fallback = e.currentTarget.nextElementSibling;
+                      if (fallback) (fallback as HTMLElement).style.display = 'flex';
+                    }}
+                  />
+                  <Calculator className="hidden w-32 h-32 text-blue-500" strokeWidth={1.5} />
                 </div>
               </div>
 
-              <div className="absolute -bottom-6 -right-6 bg-blue-500 text-white rounded-xl p-6 shadow-xl max-w-xs hidden md:block">
+              <div className="absolute -bottom-6 -right-6 bg-blue-500 text-white rounded-xl p-6 shadow-xl max-w-xs hidden md:block transition-elegant hover:scale-105 hover:shadow-2xl animate-fade-in" style={{ animationDelay: '0.4s', opacity: 0 }}>
                 <p className="font-semibold mb-1">Interactive Learning</p>
                 <p className="text-sm text-blue-100">Practice with real SAT-style problems</p>
               </div>
@@ -53,6 +63,7 @@ function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-6 mt-20">
             {[
+
               {
                 icon: BookOpen,
                 title: 'Comprehensive Curriculum',
@@ -71,9 +82,10 @@ function HomePage() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-shadow duration-200"
+                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-elegant hover:-translate-y-1 animate-fade-in-up group"
+                style={{ animationDelay: `${0.6 + index * 0.1}s`, opacity: 0 }}
               >
-                <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4 transition-elegant group-hover:bg-blue-100 group-hover:scale-110">
                   <feature.icon className="w-6 h-6 text-blue-500" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
