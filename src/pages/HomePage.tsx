@@ -37,13 +37,13 @@ function HomePage() {
               </div>
             </div>
 
-            <div className="relative animate-fade-in-up" style={{ animationDelay: '0.2s', opacity: 0 }}>
+            <div className="relative animate-fade-in-up lg:block hidden" style={{ animationDelay: '0.2s', opacity: 0 }}>
               <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-200 transition-elegant hover:shadow-xl">
-                <div className="aspect-square bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl flex items-center justify-center overflow-hidden">
+                <div className="aspect-square bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl flex items-center justify-center overflow-hidden p-4">
                   <img
                     src="/images/logo.jpg"
                     alt="Digital SAT Math"
-                    className="w-full h-full object-cover transition-elegant hover:scale-105"
+                    className="max-w-full max-h-full object-contain transition-elegant hover:scale-105"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
                       const fallback = e.currentTarget.nextElementSibling;
