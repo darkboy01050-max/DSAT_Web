@@ -13,6 +13,8 @@ function SettingsPage() {
   }, []);
 
   const loadLogo = async () => {
+    if (!supabase) return;
+
     try {
       const { data } = await supabase
         .from('settings')
@@ -51,6 +53,11 @@ function SettingsPage() {
   };
 
   const uploadLogo = async (file: File) => {
+    if (!supabase) {
+      setMessage({ type: 'error', text: 'Database not configured' });
+      return;
+    }
+
     setUploading(true);
     setMessage(null);
 
@@ -90,6 +97,11 @@ function SettingsPage() {
   };
 
   const removeLogo = async () => {
+    if (!supabase) {
+      setMessage({ type: 'error', text: 'Database not configured' });
+      return;
+    }
+
     try {
       await supabase
         .from('settings')
