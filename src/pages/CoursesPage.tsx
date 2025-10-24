@@ -6,7 +6,7 @@ function CoursesPage() {
       title: 'Private Course',
       description: 'Live online sessions with Mr. Mohamed Aliaa — personalized explanations, interactive problem-solving, and direct feedback designed for your progress.',
       details: 'One-on-one attention with customized lesson plans tailored to your learning pace. Get instant clarification on difficult concepts and receive strategies proven to boost your score.',
-      price: 'Starting from $99',
+      price: '3499',
       icon: Users,
       buttonText: 'Contact to Enroll',
       buttonAction: () => window.location.href = '/contact'
@@ -15,7 +15,7 @@ function CoursesPage() {
       title: 'Recorded Course',
       description: 'Pre-recorded video lessons covering every DSAT Math topic. Learn anytime, anywhere, at your own speed.',
       details: 'Learn all essential DSAT Math strategies with detailed examples and practice problems. Complete curriculum with step-by-step video explanations and downloadable resources.',
-      price: 'Starting from $49',
+      price: '999 ~ 2999',
       icon: Video,
       buttonText: 'Start Learning',
       buttonAction: () => window.open('https://dsat-math.vercel.app/', '_blank')
